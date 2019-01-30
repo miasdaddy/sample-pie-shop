@@ -12,11 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import admin from 'firebase-admin';
-import path from 'path';
-import fs from 'fs';
+//import admin from 'firebase-admin';
+var admin = require('firebase-admin');
+var path = require('path') ;
+var fs = require ('fs');
 
-export default function initializeApp() {
+var initializeApp = function() {
   // Check if app has already been initialized
   if (admin.apps.length === 0) {
     let credential = null;
@@ -39,4 +40,6 @@ export default function initializeApp() {
       databaseURL: DATABASE_URL,
     });
   }
-}
+};
+
+module.exports = initializeApp;
